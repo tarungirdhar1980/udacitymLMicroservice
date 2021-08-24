@@ -2,41 +2,30 @@
 
 ## Project Overview
 
-In this project, you will apply the skills you have acquired in this course to operationalize a Machine Learning Microservice API. 
+This project is to operationalize a Machine Learning Microservice API. All requested screenshots have been collated in screenshot_project_new folder.
 
-You are given a pre-trained, `sklearn` model that has been trained to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, and so on. You can read more about the data, which was initially taken from Kaggle, on [the data source site](https://www.kaggle.com/c/boston-housing). This project tests your ability to operationalize a Python flask app—in a provided file, `app.py`—that serves out predictions (inference) about housing prices through API calls. This project could be extended to any pre-trained machine learning model, such as those for image recognition and data labeling.
 
 ### Project Tasks
 
-Your project goal is to operationalize this working, machine learning microservice using [kubernetes](https://kubernetes.io/), which is an open-source system for automating the management of containerized applications. In this project you will:
+following tasks have been completed as a part of project completion:
+
 * Test your project code using linting
+ Commands used : make install , make lint
 * Complete a Dockerfile to containerize this application
+* commands ./run_docker.sh
 * Deploy your containerized application using Docker and make a prediction
+* commands : ./upload_docker.sh, ./make_predictions.sh
 * Improve the log statements in the source code for this application
+*  Commands: added extra line in app.py   logging.basicConfig(filename='output_txt_files/docker_out.txt', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
 * Configure Kubernetes and create a Kubernetes cluster
+* sudo servcies docker start minikube start 
 * Deploy a container using Kubernetes and make a prediction
+* ./run_kubernetes.sh ./make_predictions.sh
 * Upload a complete Github repo with CircleCI to indicate that your code has been tested
 
-You can find a detailed [project rubric, here](https://review.udacity.com/#!/rubrics/2576/view).
+https://app.circleci.com/pipelines/github/tarungirdhar1980/udacitymLMicroservice/8/workflows/76aaf6c0-471b-4018-8079-7c4d4863b2d6
 
-**The final implementation of the project will showcase your abilities to operationalize production microservices.**
+Markdown status
 
----
+https://circleci.com/gh/tarungirdhar1980/udacitymLMicroservice.svg?style=svg&circle-token=76aaf6c0-471b-4018-8079-7c4d4863b2d6
 
-## Setup the Environment
-
-* Create a virtualenv and activate it
-* Run `make install` to install the necessary dependencies
-
-### Running `app.py`
-
-1. Standalone:  `python app.py`
-2. Run in Docker:  `./run_docker.sh`
-3. Run in Kubernetes:  `./run_kubernetes.sh`
-
-### Kubernetes Steps
-
-* Setup and Configure Docker locally
-* Setup and Configure Kubernetes locally
-* Create Flask app in Container
-* Run via kubectl
