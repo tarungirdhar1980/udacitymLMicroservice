@@ -1,1 +1,33 @@
-<paste log output from Kubernetes-mediated prediction, here>
+tarun@LAPTOP-8BP0HBL1:~/DevOps_Microservices/project-ml-microservice-kubernetes$ kubectl get pods
+NAME                 READY   STATUS    RESTARTS   AGE
+nanodegreeproject7   1/1     Running   1          10d
+tarun@LAPTOP-8BP0HBL1:~/DevOps_Microservices/project-ml-microservice-kubernetes$ sh -x make_prediction.sh
++ PORT=8080
++ echo Port: 8080
+Port: 8080
++ curl -d {
+   "CHAS":{
+      "0":0
+   },
+   "RM":{
+      "0":6.575
+   },
+   "TAX":{
+      "0":296.0
+   },
+   "PTRATIO":{
+      "0":15.3
+   },
+   "B":{
+      "0":396.9
+   },
+   "LSTAT":{
+      "0":4.98
+   }
+} -H Content-Type: application/json -X POST http://0.0.0.0:8080/predict
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+tarun@LAPTOP-8BP0HBL1:~/DevOps_Microservices/project-ml-microservice-kubernetes$
